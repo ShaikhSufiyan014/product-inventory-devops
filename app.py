@@ -74,3 +74,15 @@ def health():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+    @app.route("/", methods=["GET"])
+    def home():
+        return jsonify({
+        "project": "Product Inventory",
+        "status": "Running",
+        "endpoints": {
+            "GET /items": "View products",
+            "POST /items": "Add product",
+            "GET /health": "Health check"
+        }
+    })
